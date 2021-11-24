@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <style type="text/css">
+    // NO_INLINE_STYLE_REPLACEMENT
+      body{background-color:#FFF}
+      body, td{font-size:12px; font-family:arial, helvetica, Microsoft YaHei; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust:100%}
+      a{color:#363}    
+      img{vertical-align:middle}
+      @media (max-width: 625px)  {
+              .sm-invisible{display:none!important}
+              .deviceWidth, .contentWidth, .xs-responsive{width:100%!important; padding:0; margin:0 auto}
+              .prdblock{width:48%!important}
+          }         
+      @media (max-width: 540px) {
+              .xs-responsive, .collogo, .colissue{width:100%!important}
+              .xs-invisible, .gmblock{display:none!important}
+              .text-left, .text-right{text-align:center!important}
+              .colissue{padding:6px 0 7px!important}
+          }  
+      @media handheld, only screen and (max-width: 350px) {
+        .xxs-responsive{width:290px}   
+        .hlblock{width:100% !important}
+
+      } 
+      @media handheld, only screen and (min-width: 351px)  {  
+        .xxs-responsive{width:48%}
+        .hlblock{width:50%}
+      }           
+        .text-left{text-align:left}
+        .text-right{text-align:right}
+        .deviceWidth{width:600px}
+        .xs-invisible{display:block}
+        .collogo{width:35%}
+        .colissue{width:65%}
+        .prdblock{width:33% !important; margin:1px}
+    </style>    
+  </head>
+  <body text="#666666" vlink="#444444" alink="#444444" link="#666666">
+    <!-- Preheader : BEGIN -->
+    <div style="display: none !important; mso-hide:all; visibility:hidden;">Why wait? Items you like might sell out!&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+    <!-- Preheader : END -->          
+    <center>
+        <div style="width:600px; margin:0 auto; padding-bottom:5px; text-align:center" class="deviceWidth">   
+          <span class="text-left collogo" style="float:left; display:inline-block; vertical-align:bottom; padding:7px 0; text-align:left">
+            <a href="https://www.yesstyle.com/en/home.html?mcg=email&utm_medium=email&utm_source=edm_unitedkingdom"><img src="https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/newsletter/common/newsletter_logo_ys_2x.png" alt="YesStyle.com" border="0" width="153" height="21"/></a>
+          </span><span style="float:right; display:inline-block; vertical-align:bottom; padding:15px 0 4px; text-align:right; font-family:arial, helvetica, Microsoft YaHei" class="text-right colissue">
+            <b><font size="2" color="#999999" style="white-space:nowrap">Shop Fashion, Beauty & Lifestyle Online</font></b></span>
+          <br clear="all" />
+        </div>
+
+        <div class="deviceWidth" style="margin:0 auto; width:600px; clear:both;">
+        <!--Content: begin-->
+            <div style="background-color:#1b2a2e; color:#fbfbfb; font-size:12px; font-family:arial, helvetica, Microsoft YaHei; line-height:1.2; padding:10px 20px; text-align:center;">
+                <#if LOYALTY_ACTIVITY.POINT_BALANCE gt 0>
+                ${LOYALTY_ACTIVITY.POINT_BALANCE} YS Points = US$${LOYALTY_ACTIVITY.POINT_BALANCE/100} &nbsp;|&nbsp; Expiry date: ${TO_BE_EXPIRED_POINTS_DATE?string('yyyy-MM-dd')}
+                <#elseif LOYALTY_ACTIVITY.POINT_BALANCE = 0>
+                Free Express Shipping with any US$59 purchase
+                </#if>
+            </div>
+            <a href="https://www.yesstyle.com/en/home.html"><img align="center" border="0" class="xs-responsive" src="https://static.cdn.responsys.net/i9/responsysimages/content/yesstylec/H2_Cart_Abondonment_USD5_EN.png" width="100%" style="margin:5px 0"/></a>            
+            <#assign date = .today>
+            <div style="background:#d37e93; color:#FFF; text-align:center; padding:15px 15px 20px;">
+                <font size="4">with coupon code</font><br/><br/>
+                <table border="0" align="center" cellpadding="0" cellspacing="0" style="border:1px solid #FCF8F8">
+                    <tr><td bgcolor="#1b2a2e" style="padding:5px 1em; font-size:18px;">W${weekadd(date, -1)?string('ww')}CART${.now?string('yyyy')}</td></tr>
+                </table><br/>
+                <font size="2">Minimum Purchase: US$ 40. Valid for 7 days</font>
+            </div>    
+            <p style="text-decoration:none; color:#000; font-size:20px; font-weight:bold">We like what you've picked out</p>
+            <div style="border-collapse:collapse; display:table; margin:0 auto">
+                <#assign v_counter=0>    
+                <#list DynamicVariable.SKU?split(",") as Single_SKU>
+                    <#if v_counter lt 3>
+                        <#assign v_counter = v_counter+1>
+                        <#data suppl as t>
+                        <#filter PRODUCT_ID=Single_SKU>
+                        <#fields PRODUCT_IMAGE TITLE_EN SALE_PRICE_USD PRODUCT_PAGE>
+                        <#assign V_PRODUCT_IMAGE=t.PRODUCT_IMAGE>
+                        <#assign V_PRODUCT_PAGE=t.PRODUCT_PAGE>
+                        <#assign V_TITLE_EN=t.TITLE_EN>
+                        <#assign V_SALE_PRICE_USD=t.SALE_PRICE_USD>
+                            <div class="prdblock" style="display:table-cell; vertical-align:top; width:33%; padding:5px 0; text-align:center">
+                                <a href="${V_PRODUCT_PAGE}"><img align="center" border="0" src="${V_PRODUCT_IMAGE}" alt="${V_TITLE_EN}" title="${V_TITLE_EN}" width="100%" /></a>
+                                <div style="margin:4px auto; padding:0 2%">${V_TITLE_EN}<br>US$${V_SALE_PRICE_USD}</div>
+                            </div>
+                        </#data>
+                    </#if>
+                </#list>
+            </div>
+        <!--End-->
+        </div>
+
+        <br clear="all" />
+
+        <br/><br/><br/>
+        <div style="width:600px; text-align:center" class="deviceWidth">
+            <div style="display:table; width:100%;">
+                <div style="display:table-cell; vertical-align:middle;"><span style="display:block; border-bottom:1px solid #666;"></span></div>
+                <div style="display:table-cell; width:1%; white-space:nowrap!important;"><b style="font-family:arial, helvetica, Microsoft YaHei; font-size:20px; text-transform:uppercase; padding:0 20px;">See More at YesStyle</b></div>
+                <div style="display:table-cell; vertical-align:middle;"><span style="display:block; border-bottom:1px solid #666;"></span></div>
+            </div>
+            <div style="font-family:arial, helvetica, Microsoft YaHei; font-size:16px; text-transform:uppercase; margin-top:16px;">
+                <a href="${clickthrough('WOMEN')}" style="display:block; color:#666; text-decoration:none; padding:16px 0; background-color:#ececec; margin-bottom:4px;">Women</a><a href="${clickthrough('BEAUTY')}" style="display:block; color:#666; text-decoration:none; padding:16px 0; background-color:#ececec; margin-bottom:4px;">Beauty</a><a href="${clickthrough('MEN')}" style="display:block; color:#666; text-decoration:none; padding:16px 0; background-color:#ececec; margin-bottom:4px;">Men</a><a href="${clickthrough('LIFESTYLE')}" style="display:block; color:#666; text-decoration:none; padding:16px 0; background-color:#ececec; margin-bottom:4px;">Lifestyle</a><a href="${clickthrough('SALE')}" style="display:block; color:#666; text-decoration:none; padding:16px 0; background-color:#ececec; margin-bottom:4px;">Sale</a><a href="${clickthrough('BLOG')}" style="display:block; color:#666; text-decoration:none; padding:16px 0; background-color:#ececec;">Blog</a></div>
+            <div style="padding:24px 0;">
+              <a href="${clickthrough('FACEBOOK')}"><img src="https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/demo/newsletter/facebook_edm_footer_2021.png" border="0" hspace="2" vspace="2" alt="Facebook" width="40px"/></a>
+              <a href="${clickthrough('TWITTER')}"><img src="https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/demo/newsletter/twitter_edm_footer_2021.png" border="0" hspace="2" vspace="2" alt="Twitter" width="40px"/></a>
+              <a href="${clickthrough('PINTEREST')}"><img src="https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/demo/newsletter/pinterest_edm_footer_2021.png" border="0" hspace="2" vspace="2" alt="Pinterest" width="40px"/></a>
+              <a href="${clickthrough('INSTAGRAM')}"><img src="https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/demo/newsletter/instagram_edm_footer_2021.png" border="0" hspace="2" vspace="2" alt="Instagram" width="40px"/></a>
+              <a href="${clickthrough('YOUTUBE')}"><img src="https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/demo/newsletter/youtube_edm_footer_2021.png" border="0" hspace="2" vspace="2" alt="Youtube" width="40px"/></a>
+              <a href="${clickthrough('TUMBLR')}"><img src="https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/demo/newsletter/tumblr_edm_footer_2021.png" border="0" hspace="2" vspace="2" alt="Tumblr" width="40px"/></a>
+            </div>
+            <div>
+                <b style="font-size:20px; line-height:25px; text-align:center; text-transform:uppercase;">Download our app</b>
+                <div style="margin-top:12px;">
+                    <a href="${clickthrough('APP_STORE')}"><img src="https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/newsletter/download/app_store_en.jpg" border="0" hspace="8" alt="App Store"></a>
+                    <a href="${clickthrough('PLAY_STORE')}"><img src="https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/newsletter/download/google_play_en.jpg" border="0" hspace="8" alt="Play Store"></a>
+                </div>
+            </div>
+        </div>
+
+        <div style="width:600px; margin:32px auto 0; text-align:center" class="deviceWidth">
+            <br><font size="1" face="arial, verdana, Microsoft YaHei" color="#666666" style="font-size:8pt">
+            Prices and availability of the above products are subject to change, and may not always reflect the information provided. Please refer to YesStyle website for actual prices and availability.<br/><br/>To ensure receipt of our emails, please add @YesStyle.com to your Address Book or Contacts. Thank you!<br/><br/>This email is addressed to ${EMAIL_ADDRESS_}<br/>To unsubscribe from the YesStyle.com newsletter, please click <a href="${clickthrough('UNSUBSCRIBE')}">here</a>,<br/>or <a href="https://www.yesstyle.com/en/secure/myaccount/email-preference.html">log into your YesStyle account</a> and update your email preferences.<br/><br/>此電郵致 ${EMAIL_ADDRESS_}<br/>若你不想收到 YesStyle.com - 電郵通訊，請<a href="${clickthrough('UNSUBSCRIBE')}">按此</a>連結或<a href="https://www.yesstyle.com/zh_TW/secure/myaccount/email-preference.html">登入</a>你的 YesStyle 戶口並更新你的電郵通訊設定。<br/><br/>Copyright &copy; 2006-2021 YESSTYLE.COM LTD. All rights reserved.<br/><br/>5/F, KC100, 100 Kwai Cheong Road, Kwai Chung, New Territories, Hong Kong.<br/>香港新界葵涌葵昌路 100 號 KC100 5 樓<br/><br/>Tel/電話: (852)2786-0817&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email/電郵: news@e.yesstyle.com        
+            </font>
+        </div>   
+    </center>
+  </body>
+</html>
